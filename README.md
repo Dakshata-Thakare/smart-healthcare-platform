@@ -1,6 +1,4 @@
-readme file content
 # Smart Healthcare Platform
-
 ## Overview
 
 Smart Healthcare Platform is a scalable microservices-based healthcare management system designed to handle:
