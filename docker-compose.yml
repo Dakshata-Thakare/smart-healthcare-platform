@@ -1,0 +1,19 @@
+services: #define all containers
+    postgres: #service name
+        image: postgres:17
+        container_name: healthcare_postgres
+        environment:  #These initialize PostgreSQL first time.
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: healthcare_db  #Creates initial database automatically.
+            TZ: UTC
+            PGTZ: UTC
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data   #Attach that persistent storage to PostgreSQL internal data folder
+            #postgres_data  --PostgreSQL stores all data there.
+            #path --Internal PostgreSQL storage path INSIDE container.
+        restart: always
+volumes:
+    postgres_data:  #Create a named persistent storage called postgres_data
